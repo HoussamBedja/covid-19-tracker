@@ -53,7 +53,7 @@ const buildChartData = (data, casesType) => {
   let lastDataPoint;
   for (let date in data.cases) {
     //skipping these dates because incoming data is not accurate and breaks the chart.
-    if (lastDataPoint && date != '12/10/20' && date != '12/12/20' && date != '12/14/20') {
+    if (lastDataPoint && date !== '12/10/20' && date !== '12/12/20' && date !== '12/14/20') {
       let newDataPoint = {
         x: date,
         y: data[casesType][date] - lastDataPoint,
