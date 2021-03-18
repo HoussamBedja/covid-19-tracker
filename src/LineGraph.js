@@ -51,7 +51,6 @@ const options = {
 const buildChartData = (data, casesType) => {
   let chartData = [];
   let lastDataPoint;
-  console.log(data)
   for (let date in data.cases) {
     //skipping 12/10/20 data because incoming data is not accurate and breaks the chart.
     if (lastDataPoint && date != '12/10/20') {
@@ -78,8 +77,6 @@ export default function LineGraph({ casesType = "cases" }) {
         .then((data) => {
           let chartData = buildChartData(data, casesType);
           setData(chartData);
-          console.log(chartData);
-          // buildChart(chartData);
         });
     };
 
