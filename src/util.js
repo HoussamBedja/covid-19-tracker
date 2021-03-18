@@ -37,6 +37,9 @@ export const sortData = (data) => {
 export const prettyPrintStat = (stat) =>
   stat ? `+${numeral(stat).format("0.0a")}` : "+0";
 
+export const prettyPrintStatTotal = (stat) =>
+  stat ? `${numeral(stat).format("0.0a")}` : "0";
+
 export const showDataOnMap = (data, casesType = "cases") =>
   data.map((country) => (
     <Circle

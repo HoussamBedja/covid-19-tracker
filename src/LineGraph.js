@@ -52,8 +52,8 @@ const buildChartData = (data, casesType) => {
   let chartData = [];
   let lastDataPoint;
   for (let date in data.cases) {
-    //skipping 12/10/20 data because incoming data is not accurate and breaks the chart.
-    if (lastDataPoint && date != '12/10/20') {
+    //skipping these dates because incoming data is not accurate and breaks the chart.
+    if (lastDataPoint && date != '12/10/20' && date != '12/12/20' && date != '12/14/20') {
       let newDataPoint = {
         x: date,
         y: data[casesType][date] - lastDataPoint,
@@ -65,7 +65,7 @@ const buildChartData = (data, casesType) => {
   return chartData;
 };
 
-export default function LineGraph({ casesType = "cases" }) {
+export default function LineGraph({ casesType = "cases", ...props }) {
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -84,7 +84,7 @@ export default function LineGraph({ casesType = "cases" }) {
   }, [casesType]);
 
   return (
-    <div>
+    <div className={props.className}>
       {data?.length > 0 && (
         <Line
           data={{
