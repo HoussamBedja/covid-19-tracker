@@ -6,6 +6,10 @@ body {
   background-color: #f5f6fa;
 }
 
+h1 {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .app {
   display: flex;
   justify-content: space-evenly;

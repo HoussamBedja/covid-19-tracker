@@ -41,8 +41,8 @@ function App() {
           ));
           const sortedData = sortData(data);
           setTableData(sortedData);
-          setCountries(countries);
           setMapCountries(data);
+          setCountries(countries);
         })
     }
     getCountriesData();
@@ -57,17 +57,22 @@ function App() {
         : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
 
     await fetch(url)
-    .then(response => response.json())
-    .then(data => {
-      setCountry(countryCode);
-      setCountryInfo(data);
-      setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-      setMapZoom(4);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        setCountry(countryCode);
+        setCountryInfo(data);
+        if (countryCode === "worldwide") {
+          setMapCenter([34.80746, -40.4796])
+          setMapZoom(2);
+        } else {
+          setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
+          setMapZoom(4);
+        }
+      });
 
   };
 
-  console.log(countryInfo);
+  // console.log(countryInfo);
 
   return (
     <div className="app">
@@ -99,7 +104,7 @@ function App() {
 
         <div className="app__stats">
           <InfoBox
-            isRed
+            isBlue
             active={casesType === "cases"}
             onClick={(e) => setCasesType("cases")}
             title="Coronavirus Cases"

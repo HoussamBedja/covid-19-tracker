@@ -83,6 +83,9 @@ export default function LineGraph({ casesType = "cases", ...props }) {
     fetchData();
   }, [casesType]);
 
+  const borderColor =  casesType === "cases" ? "rgb(0, 0, 160)" : casesType === "recovered" ? "rgb(45, 153, 45)" : "rgba(209, 54, 54, 0.5)";
+  const backgroundColor = casesType === "cases" ? "rgba(0, 0, 160, 0.5)" : casesType === "recovered" ? "rgba(102, 163, 102, 0.5)" : "rgba(209, 54, 54, 0.45)";
+
   return (
     <div className={props.className}>
       {data?.length > 0 && (
@@ -90,8 +93,8 @@ export default function LineGraph({ casesType = "cases", ...props }) {
           data={{
             datasets: [
               {
-                backgroundColor: "rgba(204, 16, 52, 0.5)",
-                borderColor: "#CC1034",
+                borderColor: borderColor,
+                backgroundColor: backgroundColor,
                 data: data,
               },
             ],
