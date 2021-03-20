@@ -17,7 +17,7 @@ export default function Map({ countries, casesType, center, zoom }) {
       className="map"
       center={center}
       zoom={zoom}
-      scrollWheelZoom={false}
+      // scrollWheelZoom={false}
     >
       <ChangeView center={center} zoom={zoom} />
       <TileLayer

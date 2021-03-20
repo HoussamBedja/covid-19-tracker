@@ -21,7 +21,7 @@ function App() {
 
 
   useEffect(() => {
-    fetch("https://disease.sh/v3/covid-19/all")
+    fetch("https://disease.sh/v3/covid-19/all?twoDaysAgo=true")
       .then(response => response.json())
       .then(data => {
         setCountryInfo(data);
@@ -30,7 +30,7 @@ function App() {
 
   useEffect(() => {
     const getCountriesData = async () => {
-      fetch("https://disease.sh/v3/covid-19/countries")
+      fetch("https://disease.sh/v3/covid-19/countries?twoDaysAgo=true")
         .then((response) => response.json())
         .then((data) => {
           const countries = data.map((country) => (
@@ -53,8 +53,8 @@ function App() {
 
     const url =
       countryCode === "worldwide"
-        ? "https://disease.sh/v3/covid-19/all"
-        : `https://disease.sh/v3/covid-19/countries/${countryCode}`;
+        ? "https://disease.sh/v3/covid-19/all?twoDaysAgo=true"
+        : `https://disease.sh/v3/covid-19/countries/${countryCode}?twoDaysAgo=true`;
 
     await fetch(url)
       .then((response) => response.json())
@@ -66,7 +66,7 @@ function App() {
           setMapZoom(2);
         } else {
           setMapCenter([data.countryInfo.lat, data.countryInfo.long]);
-          setMapZoom(4);
+          setMapZoom(4.5);
         }
       });
 

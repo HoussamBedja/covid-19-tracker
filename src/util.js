@@ -4,20 +4,14 @@ import { Circle, Popup } from "react-leaflet";
 const casesTypeColors = {
   cases: {
     hex: "#3c45cf",
-    rgb: "rgb(0, 0, 160)",
-    half_op: "rgba(204, 16, 52, 0.5)",
     multiplier: 800,
   },
   recovered: {
     hex: "#287a28",
-    rgb: "rgb(30, 107, 30)",
-    half_op: "rgba(125, 215, 29, 0.5)",
     multiplier: 800,
   },
   deaths: {
     hex: "#d13636",
-    rgb: "rgb(251, 68, 67)",
-    half_op: "rgba(251, 68, 67, 0.5)",
     multiplier: 2500,
   },
 };
@@ -40,12 +34,15 @@ export const prettyPrintStat = (stat) =>
 export const prettyPrintStatTotal = (stat) =>
   stat ? `${numeral(stat).format("0.0a")}` : "0";
 
+//Drwaing the circles on the map
 export const showDataOnMap = (data, casesType = "cases") =>
   data.map((country) => (
     <Circle
       center={[country.countryInfo.lat, country.countryInfo.long]}
-      color={casesTypeColors[casesType].hex}
-      fillColor={casesTypeColors[casesType].hex}
+      pathOptions={{
+        color: casesTypeColors[casesType].hex,
+        fillColor: casesTypeColors[casesType].hex,
+      }}
       fillOpacity={0.4}
       radius={
         Math.sqrt(country[casesType]) * casesTypeColors[casesType].multiplier/4.2
