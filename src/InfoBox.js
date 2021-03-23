@@ -7,7 +7,7 @@ export default function InfoBox({ title, cases, isRed, isBlue, active, total, ..
     <Card onClick={props.onClick} className={`infoBox ${active && 'infoBox--selected'} ${isRed && 'infoBox--red'} ${isBlue && 'infoBox--blue'}`}>
       <CardContent>
         <Typography className="infoBox__title" color="textSecondary">
-          {title}
+          New {title}
         </Typography>
 
         <h2 className={`infoBox__cases ${isRed && 'infoBox__cases--red'} ${isBlue && 'infoBox__cases--blue'}`}>{cases}</h2>
