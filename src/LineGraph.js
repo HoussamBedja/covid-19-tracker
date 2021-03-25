@@ -30,7 +30,10 @@ const options = {
           format: "MM/DD/YY",
           tooltipFormat: "ll",
         },
-      },
+        ticks: {
+          fontColor: "#d6d6d6"
+        }
+      }
     ],
     yAxes: [
       {
@@ -42,6 +45,7 @@ const options = {
           callback: function (value, index, values) {
             return numeral(value).format("0a");
           },
+          fontColor: "#d6d6d6",
         },
       },
     ],
