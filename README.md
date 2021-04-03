@@ -11,7 +11,9 @@ Here are some key features:
 
 Deployed LIVE on https://covid19-tracker-houssam.netlify.app/.
 
-## Available Scripts
+<a href="https://covid19-tracker-houssam.netlify.app/">![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/12534205/113480492-72489f80-9462-11eb-8284-b4f34fa9a5ab.gif)</a>
+
+## Run the project locally
 
 In the project directory, you can run:
 
