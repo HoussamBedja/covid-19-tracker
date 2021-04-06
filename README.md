@@ -1,6 +1,6 @@
 # Covid-19 Tracker App
 
-This Project is built using mainly React.js and the <a href="https://disease.sh/">disease.sh</a>. 
+This Project is built using mainly React.js and the <a href="https://disease.sh/">disease.sh</a> API. 
 
 Here are some key features:
 
